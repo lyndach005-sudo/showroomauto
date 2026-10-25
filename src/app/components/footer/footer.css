@@ -1,0 +1,25 @@
+.footer {
+  margin-top: 60px;
+  padding: 35px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #2b1d20, #8c2a3c);
+  border-top: 4px solid var(--main);
+}
+
+.footer h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+}

@@ -1,0 +1,61 @@
+<div class="header">
+ <label>Brand</label>
+ <!-- AJOUT : placeholder -->
+ <input type="text" #brand placeholder="Ex: BMW, Audi..."
+ (input)="selectAutos(brand.value)">
+ <fa-icon [icon]="faMagnifyingGlass" />
+
+</div>
+
+<!-- AJOUT : filtre prix + tri -->
+<div class="filters">
+    <div class="price-box">
+        <label>Max price</label>
+        <input type="number" #price placeholder="Ex: 300"
+        (input)="selectMaxPrice(price.value)">
+    </div>
+
+    <div class="sort-buttons">
+        <button class="sort-btn" (click)="sortByPrice('asc')">Price ↑</button>
+        <button class="sort-btn" (click)="sortByPrice('desc')">Price ↓</button>
+    </div>
+</div>
+
+<!-- AJOUT : compteur -->
+<p class="result-count">{{selectedAutos.length}} car(s) found</p>
+
+<div class="container">
+@for(auto of selectedAutos; track auto.id)
+{
+    <div class="auto-card">
+        <img [src]="`images/${auto.photo}`">  
+        
+        <div class="details">
+
+<!-- AJOUT : badge de marque (le h3 n'affiche plus que le modèle) -->
+<span class="brand-badge">{{auto.brand}}</span>
+<h3>{{auto.model}}</h3>
+<p> Power: {{auto.power}} CV <br>
+    price: <span class="price">{{auto.price}} DNT</span> <br>
+    <span [class.low-stock]="auto.availability <= 3">
+        Only {{auto.availability}} units left in stock!
+    </span>
+</p>
+
+        </div>
+
+        @if(openedId == auto.id){
+            <p class="description">{{auto.description}}</p>
+        }
+
+        <div class="see_more">
+            <button (click)="selectCar(auto)">See More...</button>
+
+        </div>
+    </div>
+}
+
+@if(selectedAutos.length == 0){
+    <p class="no-result">No car found!</p>
+}
+</div>

@@ -1,0 +1,20 @@
+.header {
+  padding: 60px 20px 70px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #2b1d20, #8c2a3c);
+  border-bottom: 4px solid var(--main);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 24px;
+  }
+}

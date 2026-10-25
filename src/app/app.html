@@ -1,0 +1,38 @@
+<app-head-bar></app-head-bar>
+<app-search-bar [autos]="autolist" (onSelectCar)="selectCar($event)"></app-search-bar>
+
+@if(selectedCar){
+    <!-- AJOUT : div pour pouvoir styliser -->
+    <div class="selected-car">
+    {{selectedCar.model}} <br>
+    {{selectedCar.brand}} <br> 
+    {{selectedCar.description}} <br> 
+    </div>
+}
+ <app-footer></app-footer>
+
+
+
+<!-- ce code va afficher la liste des autos dans la page d'accueil
+<div class="container">
+@for(auto of autolist; track auto.id)
+{
+    <div class="auto-card">
+        <img [src]="`images/${auto.photo}`">  
+        
+        <div class="details">
+
+<h3>{{auto.brand}} {{auto.model}}</h3>
+<p> Power: {{auto.power}} <br>
+    price: {{auto.price}} DNT <br>
+    Only {{auto.availability}} units left in stock!
+</p>
+
+        </div>
+
+        <div class="see_more">
+            <button>See More...</button>
+        </div>
+    </div>
+}
+</div> -->
